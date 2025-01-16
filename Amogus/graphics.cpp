@@ -87,8 +87,8 @@ glm::vec3 getNormal(glm::vec3 p, float R, float r, glm::vec3 rotation) {
 
 char getLight(float light) {
     const char* chars = "@WMB$%8&#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,\"^`'.";
-    size_t size = strlen(chars);
 
+    size_t size = strlen(chars);
     if (light <= 0) {
         return '.';
     }
