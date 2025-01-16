@@ -26,8 +26,7 @@ void init()
 }
 
 void draw() {
-    
-    glm::vec3 rotation(fpsClock.ticks * DEG2RAD);
+    glm::vec3 rotation(fpsClock.ticks * DEG2RAD / 4);
 	for (int y = 0; y < height - 1; y++) {
 		for (int x = 0; x < width; x++) {
 			glm::vec2 coord(x, y);
@@ -35,11 +34,11 @@ void draw() {
 			coord -= 0.5;
 			coord *= 2;
             glm::vec3 rd(coord, -1);
-			char c = traceTorus(rd, glm::vec3(0, 0, 2), rotation);
+			char c = traceTorus(rd, glm::vec3(0, 0, 3.5), rotation);
 			screenBuffer[util::bufferIndex(x, y)] = c;
 		}
 	}
-	printf("%sTorus animation by kiuwn | Console size: %dx%d FPS: %d", screenBuffer, width, height, fpsClock.currentFPS);
+	printf("%sTorus animation by IAmNoNothing | Console size: %dx%d FPS: %d", screenBuffer, width, height, fpsClock.currentFPS);
 }
 
 float torusSDF(glm::vec3 p, float R, float r, glm::vec3 rotation) {
@@ -101,8 +100,8 @@ char getLight(float light) {
 }
 
 char traceTorus(glm::vec3 rd, glm::vec3 ro, glm::vec3 rotation) {
-    float R = 1.0;
-    float r = 0.3;
+    float R = 2.0;
+    float r = 0.5;
 
     float t = 0.0;
     float maxDist = 100.0;
